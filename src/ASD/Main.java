@@ -1,5 +1,6 @@
 package ASD;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -9,30 +10,52 @@ public class Main {
     и не оптимизированной программы. Написать функции сортировки,
     которые возвращают количество операций.*/
 
-    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        int repeatQuestion = 1;
-        here: while(repeatQuestion!=0){
-            System.out.println("Последовательно через Enter введите число и его степень");
-            int number = scanner.nextInt();
-            int degree = scanner.nextInt();
-            int k = 1;
-            here2:while (degree>1){
-                if (degree%2 == 0) {
-                    number = number*number;
-                    degree = degree/2;
-                    continue here2;
-                }else{
-                    degree--;
-                    k = k*number;
-                    continue here2;
+        int [] arr = {9,8,7,6,5,4,3,2,1,0};
+        Bubble(arr);
+        System.out.println(Arrays.toString(arr));
+        int [] arr2 = {9,8,7,6,5,4,3,2,1,0};
+        BubblePlus(arr2);
+        System.out.println(Arrays.toString(arr2));
+    }
+
+    public static void Bubble (int[] a){
+        int count = 0;
+        int temp;
+        boolean flag = true;
+        while (flag){
+            flag = false;
+            for (int i = 0; i < a.length-1; i++) {
+                if (a[i] > a[i+1]){
+                    temp = a[i+1];
+                    a[i+1] = a[i];
+                    a[i] = temp;
+                    flag = true;
+                    count++;
                 }
             }
-            System.out.println(number*k);
-            System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
-            repeatQuestion = scanner.nextInt();
-            if (repeatQuestion==1) continue here;
-            else break;
         }
+        System.out.println(count);
+    }
+
+    public static void BubblePlus (int[] a){
+        int count = 0;
+        int temp;
+        boolean flag = true;
+        int L = a.length;
+        while (flag){
+            flag = false;
+            for (int i = 0; i < L-1; i++) {
+                if (a[i] > a[i+1]){
+                    temp = a[i+1];
+                    a[i+1] = a[i];
+                    a[i] = temp;
+                    flag = true;
+                    count++;
+                    L--;
+                }
+            }
+        }
+        System.out.println(count);
     }
 }
