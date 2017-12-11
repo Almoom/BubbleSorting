@@ -22,15 +22,13 @@ public class Main {
     public static void Bubble (int[] a){
         int count = 0;
         int temp;
-        boolean flag = true;
-        while (flag){
-            flag = false;
-            for (int i = 0; i < a.length-1; i++) {
-                if (a[i] > a[i+1]){
-                    temp = a[i+1];
-                    a[i+1] = a[i];
-                    a[i] = temp;
-                    flag = true;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length-1; j++) {
+                count++;
+                if (a[j] > a[j+1]){
+                    temp = a[j+1];
+                    a[j+1] = a[j];
+                    a[j] = temp;
                     count++;
                 }
             }
@@ -42,17 +40,15 @@ public class Main {
         int count = 0;
         int temp;
         boolean flag = true;
-        int L = a.length;
         while (flag){
             flag = false;
-            for (int i = 0; i < L-1; i++) {
+            for (int i = 0; i < a.length-1; i++) {
                 if (a[i] > a[i+1]){
                     temp = a[i+1];
                     a[i+1] = a[i];
                     a[i] = temp;
                     flag = true;
                     count++;
-                    L--;
                 }
             }
         }
