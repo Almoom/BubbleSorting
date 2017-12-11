@@ -1,7 +1,6 @@
 package ASD;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
     /*Урок 3. Поиск в массиве. Простые сортировки
@@ -23,8 +22,8 @@ public class Main {
         int count = 0;
         int temp;
         for (int i = 0; i < a.length; i++) {
+            count++;
             for (int j = 0; j < a.length-1; j++) {
-                count++;
                 if (a[j] > a[j+1]){
                     temp = a[j+1];
                     a[j+1] = a[j];
